@@ -15,9 +15,7 @@ const backgroundPanFeatures = () => {
      */
 }
 
-const populate = function
-
-$(document).ready(() => {
+$(window).ready(() => {
     renderBaseMap();
 })
 
