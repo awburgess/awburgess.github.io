@@ -8,9 +8,33 @@ html, body {
     width: 100%;
 }
 
-#landingPage {
+#landingMap {
     height: 100%;
-    width: 100%;
-    position: relative;
+    width: 80%;
+    bottom: 0;
+    float: left;
     outline: none;
+}
+
+#contentMenu {
+    height: 100%;
+    width: 20%;
+    right: 0;
+    float: right;
+    outline: none;
+    padding-left: 20px;
+    background-color: #fffafa;
+}
+
+.panel-body:hover {
+    background-color: #ccc;
+}
+
+.vertical-menu a.active {
+    background-color: #4CAF50;
+    color: white;
+}
+
+#logo {
+    padding: 25px;
 }

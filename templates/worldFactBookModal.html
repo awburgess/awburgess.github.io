@@ -1,0 +1,275 @@
+<div id="factBookEntry">
+    <h3>{{country}}</h3>
+    <div class="panel-group" id="accordion">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+                        Introduction</a>
+                </h4>
+            </div>
+            <div id="collapse1" class="panel-collapse collapse in">
+                <div class="panel-body" id="introduction">
+                    <% _.forOwn(countryData['Introduction'], (value, key) => { %>
+                    <div class="list-group">
+                        <h4 class="list-group-item-heading"><%= key %></h4>
+                        <% if (value !== null && typeof value === 'object') { %>
+                            <div class="list-group">
+                                <div list-group-item-heading>
+                                    <% _.forOwn(value, (v, k) => { %>
+                                        <span class="list-group-item-text"><%= k %> : <%= v %></span>
+                                    <% }) %>
+                                </div>
+                            </div>
+                        <%  } else { %>
+                            <span class="list-group-item-text"><%= value %></span>
+                        <% }}) %>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">
+                        Geography</a>
+                </h4>
+            </div>
+            <div id="collapse2" class="panel-collapse collapse">
+                <div class="panel-body" id="geography">
+                    <% _.forOwn(countryData['Geography'], (value, key) => { %>
+                    <div class="list-group">
+                        <h4 class="list-group-item-heading"><%= key %></h4>
+                        <% if (value !== null && typeof value === 'object') { %>
+                            <div class="list-group">
+                                <div list-group-item-heading>
+                                    <% _.forOwn(value, (v, k) => { %>
+                                        <span class="list-group-item-text"><%= k %> : <%= v %></span><br/>
+                                    <% }) %>
+                                </div>
+                            </div>
+                        <%  } else { %>
+                        <span class="list-group-item-text"><%= value %></span>
+                        <% }}) %>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">
+                        People and Society</a>
+                </h4>
+            </div>
+            <div id="collapse3" class="panel-collapse collapse">
+                <div class="panel-body" id="people">
+                    <% _.forOwn(countryData['People'], (value, key) => { %>
+                    <div class="list-group">
+                        <h4 class="list-group-item-heading"><%= key %></h4>
+                        <% if (value !== null && typeof value === 'object') { %>
+                        <div class="list-group">
+                            <div list-group-item-heading>
+                                <% _.forOwn(value, (v, k) => { %>
+                                <span class="list-group-item-text"><%= k %> : <%= v %></span>
+                                <% }) %>
+                            </div>
+                        </div>
+                        <%  } else { %>
+                        <span class="list-group-item-text"><%= value %></span>
+                        <% }}) %>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse4">
+                        Government</a>
+                </h4>
+            </div>
+            <div id="collapse4" class="panel-collapse collapse">
+                <div class="panel-body" id="government">
+                    <% _.forOwn(countryData['Government'], (value, key) => { %>
+                    <div class="list-group">
+                        <h4 class="list-group-item-heading"><%= key %></h4>
+                        <% if (value !== null && typeof value === 'object') { %>
+                        <div class="list-group">
+                            <div list-group-item-heading>
+                                <% _.forOwn(value, (v, k) => { %>
+                                <span class="list-group-item-text"><%= k %> : <%= v %></span>
+                                <% }) %>
+                            </div>
+                        </div>
+                        <%  } else { %>
+                        <span class="list-group-item-text"><%= value %></span>
+                        <% }}) %>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse5">
+                        Economy</a>
+                </h4>
+            </div>
+            <div id="collapse5" class="panel-collapse collapse">
+                <div class="panel-body" id="economy">
+                    <% _.forOwn(countryData['Economy'], (value, key) => { %>
+                    <div class="list-group">
+                        <h4 class="list-group-item-heading"><%= key %></h4>
+                        <% if (value !== null && typeof value === 'object') { %>
+                        <div class="list-group">
+                            <div list-group-item-heading>
+                                <% _.forOwn(value, (v, k) => { %>
+                                <span class="list-group-item-text"><%= k %> : <%= v %></span>
+                                <% }) %>
+                            </div>
+                        </div>
+                        <%  } else { %>
+                        <span class="list-group-item-text"><%= value %></span>
+                        <% }}) %>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse6">
+                        Energy</a>
+                </h4>
+            </div>
+            <div id="collapse6" class="panel-collapse collapse">
+                <div class="panel-body" id="energy">
+                    <% _.forOwn(countryData['Energy'], (value, key) => { %>
+                    <div class="list-group">
+                        <h4 class="list-group-item-heading"><%= key %></h4>
+                        <% if (value !== null && typeof value === 'object') { %>
+                        <div class="list-group">
+                            <div list-group-item-heading>
+                                <% _.forOwn(value, (v, k) => { %>
+                                <span class="list-group-item-text"><%= k %> : <%= v %></span>
+                                <% }) %>
+                            </div>
+                        </div>
+                        <%  } else { %>
+                        <span class="list-group-item-text"><%= value %></span>
+                        <% }}) %>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse7">
+                        Communication</a>
+                </h4>
+            </div>
+            <div id="collapse7" class="panel-collapse collapse">
+                <div class="panel-body" id="communications">
+                    <% _.forOwn(countryData['Communication'], (value, key) => { %>
+                    <div class="list-group">
+                        <h4 class="list-group-item-heading"><%= key %></h4>
+                        <% if (value !== null && typeof value === 'object') { %>
+                        <div class="list-group">
+                            <div list-group-item-heading>
+                                <% _.forOwn(value, (v, k) => { %>
+                                <span class="list-group-item-text"><%= k %> : <%= v %></span>
+                                <% }) %>
+                            </div>
+                        </div>
+                        <%  } else { %>
+                        <span class="list-group-item-text"><%= value %></span>
+                        <% }}) %>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse8">
+                        Transportation</a>
+                </h4>
+            </div>
+            <div id="collapse8" class="panel-collapse collapse">
+                <div class="panel-body" id="transportation">
+                    <% _.forOwn(countryData['Transportation'], (value, key) => { %>
+                    <div class="list-group">
+                        <h4 class="list-group-item-heading"><%= key %></h4>
+                        <% if (value !== null && typeof value === 'object') { %>
+                        <div class="list-group">
+                            <div list-group-item-heading>
+                                <% _.forOwn(value, (v, k) => { %>
+                                <span class="list-group-item-text"><%= k %> : <%= v %></span>
+                                <% }) %>
+                            </div>
+                        </div>
+                        <%  } else { %>
+                        <span class="list-group-item-text"><%= value %></span>
+                        <% }}) %>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse9">
+                        Military and Security</a>
+                </h4>
+            </div>
+            <div id="collapse9" class="panel-collapse collapse">
+                <div class="panel-body" id="military">
+                    <% _.forOwn(countryData['Military'], (value, key) => { %>
+                    <div class="list-group">
+                        <h4 class="list-group-item-heading"><%= key %></h4>
+                        <% if (value !== null && typeof value === 'object') { %>
+                        <div class="list-group">
+                            <div list-group-item-heading>
+                                <% _.forOwn(value, (v, k) => { %>
+                                <span class="list-group-item-text"><%= k %> : <%= v %></span>
+                                <% }) %>
+                            </div>
+                        </div>
+                        <%  } else { %>
+                        <span class="list-group-item-text"><%= value %></span>
+                        <% }}) %>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse10">
+                        Transnational Issues</a>
+                </h4>
+            </div>
+            <div id="collapse10" class="panel-collapse collapse">
+                <div class="panel-body" id="transnational">
+                    <% _.forOwn(countryData['Issues'], (value, key) => { %>
+                    <div class="list-group">
+                        <h4 class="list-group-item-heading"><%= key %></h4>
+                        <% if (value !== null && typeof value === 'object') { %>
+                        <div class="list-group">
+                            <div list-group-item-heading>
+                                <% _.forOwn(value, (v, k) => { %>
+                                <span class="list-group-item-text"><%= k %> : <%= v %></span>
+                                <% }) %>
+                            </div>
+                        </div>
+                        <%  } else { %>
+                        <span class="list-group-item-text"><%= value %></span>
+                        <% }}) %>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
