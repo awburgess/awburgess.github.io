@@ -1,5 +1,5 @@
 let baseMap
-let worldGeoJSON
+let countryCodes
 
 const worldColors = ['#a6cee3','#1f78b4','#b2df8a','#33a02c','#fb9a99',
     '#e31a1c','#fdbf6f','#ff7f00','#cab2d6','#6a3d9a','#ffff99','#b15928']
@@ -8,7 +8,8 @@ const renderBaseMap = () => {
     const layer = new L.StamenTileLayer("terrain")
     baseMap = new L.Map("landingMap", {
         center: new L.LatLng(0, 0),
-        zoom: 5
+        zoom: 3,
+        minZoom: 2
     })
     baseMap.addLayer(layer)
 }
@@ -23,9 +24,9 @@ const makeCountryStyle = (feature) => {
     }
 }
 
-const getIsoToGecJSON = () => {
+const getIsoAndCountryNames = () => {
     $.getJSON('data/country_codes.json', (data) => {
-
+        countryCodes = data
     })
 }
 
@@ -43,10 +44,9 @@ const attributeClickHandler = (feature, layer) => {
         const iso2 = feature.properties.iso_a2.toLowerCase()
 
         $.getJSON('data/wfb_json/' + iso2 + '.json', (data) => {
-            console.log(data)
             $.get('templates/worldFactBookModal.html', (temp) => {
                 const template = _.template(temp)
-                $('#geoInfo').html(template({countryData: data}))
+                $('#geoInfo').html(template({countryData: data, country: countryCodes[iso2.toUpperCase()].name}))
                 $('#infoModal').modal('show')
             })
         })
@@ -56,4 +56,5 @@ const attributeClickHandler = (feature, layer) => {
 $(window).ready(() => {
     renderBaseMap()
     getWorldGeoJSON()
+    getIsoAndCountryNames()
 })
