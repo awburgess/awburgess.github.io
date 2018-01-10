@@ -1,21 +1,60 @@
-let baseMap;
+let baseMap
+let countryCodes
+
+const worldColors = ['#a6cee3','#1f78b4','#b2df8a','#33a02c','#fb9a99',
+    '#e31a1c','#fdbf6f','#ff7f00','#cab2d6','#6a3d9a','#ffff99','#b15928']
 
 const renderBaseMap = () => {
-    const layer = new L.StamenTileLayer("watercolor");
-    baseMap = new L.Map("landingPage", {
-        center: new L.LatLng(37.7, -122.4),
-        zoom: 12,
-        zoomControl:false
-    });
-    baseMap.addLayer(layer);
+    const layer = new L.StamenTileLayer("terrain")
+    baseMap = new L.Map("landingMap", {
+        center: new L.LatLng(0, 0),
+        zoom: 3,
+        minZoom: 2
+    })
+    baseMap.addLayer(layer)
 }
 
-const backgroundPanFeatures = () => {
-    /* Todo: This is the function to pan to a new lat/lon on a timer, displaying a "fancy" collection of data visualiations representing where it landed
-     */
+const makeCountryStyle = (feature) => {
+    const colorChoice = worldColors[Math.floor(Math.random() * worldColors.length)]
+    return {
+        fillColor: colorChoice,
+        color: colorChoice,
+        opacity: 0.3,
+        weight: 1
+    }
+}
+
+const getIsoAndCountryNames = () => {
+    $.getJSON('data/country_codes.json', (data) => {
+        countryCodes = data
+    })
+}
+
+const getWorldGeoJSON = () => {
+    $.getJSON('https://d2ad6b4ur7yvpq.cloudfront.net/naturalearth-3.3.0/ne_110m_admin_0_countries.geojson', (data) => {
+        L.geoJson(data,
+            {style: makeCountryStyle,
+            onEachFeature: attributeClickHandler}
+            ).addTo(baseMap)
+    })
+}
+
+const attributeClickHandler = (feature, layer) => {
+    layer.on('click', (e) => {
+        const iso2 = feature.properties.iso_a2.toLowerCase()
+
+        $.getJSON('data/wfb_json/' + iso2 + '.json', (data) => {
+            $.get('templates/worldFactBook/worldFactBookModal.html', (temp) => {
+                const template = _.template(temp)
+                $('#geoInfo').html(template({countryData: data, country: countryCodes[iso2.toUpperCase()].name}))
+                $('#infoModal').modal('show')
+            })
+        })
+    })
 }
 
 $(window).ready(() => {
-    renderBaseMap();
+    renderBaseMap()
+    getWorldGeoJSON()
+    getIsoAndCountryNames()
 })
-

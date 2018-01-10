@@ -2,42 +2,92 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
     <title>Scoop Of Geo</title>
 
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet"
           integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
     <link rel="stylesheet" href="./css/landingPage.css">
-    <link rel="stylesheet" href="./css/mainMenu.css">
+
     <link rel="stylesheet" href="https://unpkg.com/leaflet@1.2.0/dist/leaflet.css"
           integrity="sha512-M2wvCLH6DSRazYeZRIm1JnYyh22purTM+FDB5CsyxtQJYeKq83arPe5wgbNmcFXGqiSH2XR8dT/fJISVA1r/zQ=="
           crossorigin=""/>
+
+    <script src="./lib/lodash.js"></script>
 
     <script src="https://unpkg.com/leaflet@1.2.0/dist/leaflet.js"
             integrity="sha512-lInM/apFSqyy1o6s89K4iQUKg6ppXEgsVxT35HbzUupEVRh2Eu9Wdl4tHj7dZO0s1uvplcYGmt3498TtHq+log=="
             crossorigin=""></script>
 
     <script
-            src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-            integrity="sha256-k2WSCIexGzOj3Euiig+TlR8gA0EmPjuc79OEeY5L45g="
+            src="https://code.jquery.com/jquery-3.2.1.min.js"
+            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
             crossorigin="anonymous"></script>
+
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"
             integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script>
 
     <script type="text/javascript" src="http://maps.stamen.com/js/tile.stamen.js?v1.3.0"></script>
+
+    <!--<script type="text/javascript" src="./js/landingPage.js"></script>-->
 
     <script type="text/javascript" src="./js/landingPage.js"></script>
 
 
 </head>
 <body>
-<div id="mainMenu" class="sidenav">
-
-</div>
-<div id="landingPage">
-
-    <div id="feature">
+    <div class="modal fade bs-example-modal-lg" tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel" id="infoModal">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                    <div id="geoInfo"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div id="landingMap">
 
     </div>
-</div>
+    <div id="contentMenu" class="well">
+        <div>
+            <img id="logo" src="images/scoop_of_geo_small.svg">
+        </div>
+        <div class="vertical-menu">
+            <div class="panel panel-default">
+                <div class="panel-body panel-body-sm">
+                    Political Maps
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-body panel-body-sm">
+                    Economic Maps
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-body panel-body-sm">
+                    Cultural Maps
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-body panel-body-sm">
+                    Environmental Maps
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-body panel-body-sm">
+                    Dadaist Maps
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-body panel-body-sm">
+                    About Me
+                </div>
+            </div>
+
+        </div>
+
+    </div>
 </body>
 </html>
