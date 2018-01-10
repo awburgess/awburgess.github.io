@@ -11,6 +11,7 @@
             <div id="collapse1" class="panel-collapse collapse in">
                 <div class="panel-body" id="introduction">
                     <% _.forOwn(countryData['Introduction'], (value, key) => { %>
+                    <% if (typeof key !== 'undefined' && key !== 'null' ) { %>
                     <div class="list-group">
                         <h4 class="list-group-item-heading wfb-header"><%= key %></h4>
                         <% if (value !== null && typeof value === 'object') { %>
@@ -23,7 +24,7 @@
                         <%  } else { %>
                             <p class="list-group-item-text"><%= value %></p>
                             </div>
-                        <% }}) %>
+                        <% }}}) %>
                     </div>
                 </div>
             </div>

@@ -44,7 +44,7 @@ const attributeClickHandler = (feature, layer) => {
         const iso2 = feature.properties.iso_a2.toLowerCase()
 
         $.getJSON('data/wfb_json/' + iso2 + '.json', (data) => {
-            $.get('templates/worldFactBookModal.html', (temp) => {
+            $.get('templates/worldFactBook/worldFactBookModal.html', (temp) => {
                 const template = _.template(temp)
                 $('#geoInfo').html(template({countryData: data, country: countryCodes[iso2.toUpperCase()].name}))
                 $('#infoModal').modal('show')

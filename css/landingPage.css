@@ -6,24 +6,36 @@ body {
 html, body {
     height: 100%;
     width: 100%;
+    overflow-y: hidden;
+    overflow-x: hidden;
 }
 
 #landingMap {
     height: 100%;
     width: 80%;
-    bottom: 0;
     float: left;
     outline: none;
+    box-sizing: border-box;
 }
 
 #contentMenu {
     height: 100%;
     width: 20%;
-    right: 0;
     float: right;
-    outline: none;
-    padding-left: 20px;
+    padding-left: 2%;
+    display: block;
     background-color: #f2f2f2;
+    box-sizing: border-box;
+    overflow: auto;
+}
+
+#contentMenu:after {
+    display: table;
+    clear: both;
+}
+
+.panel-body-sm {
+    padding: 10px 10px;
 }
 
 .panel-body:hover {
